@@ -1,3 +1,5 @@
+import data from '../data/data.json'
+
 export const uniqArr = (someArr) => {
     return someArr.reduce((acc, currObj) => {
         const index = acc.findIndex(item => item.label === currObj.label);
@@ -9,3 +11,5 @@ export const uniqArr = (someArr) => {
         return acc;
     }, []);
 }
+
+export const uniq = uniqArr(data);

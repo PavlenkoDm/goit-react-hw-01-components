@@ -1,13 +1,18 @@
 import PropTypes from 'prop-types';
 import { FriendsItem } from 'components/index';
-import css from './Friends.module.css'
+import css from './Friends.module.css';
 
 export const FriendsList = ({ friends }) => {
     return (
         <ul className={css.friendList}>
-            <FriendsItem
-                friends={friends}
-            />
+            {friends.map(({ id, avatar, name, isOnline }) => {
+              return (<FriendsItem
+                    key={id}
+                    avatar={avatar}
+                    name={name}
+                    isOnline={isOnline}
+                />);
+            })}
         </ul>
     );
 };
@@ -20,5 +25,5 @@ FriendsList.propTypes = {
             id: PropTypes.number.isRequired,
             isOnline: PropTypes.bool.isRequired,
         })
-    ),
+    ).isRequired,
 };

@@ -1,28 +1,26 @@
 import PropTypes from 'prop-types';
-import css from './Profile-stats.module.css'
+import css from './Profile-stats.module.css';
 
-export const ProfileStats = props => {
-    const { followers = 0, views = 0, likes = 0 } = props;
+export const ProfileStats = ({ stats }) => {
+    const statsData = Object.entries(stats);
     return (
         <ul className={css.stats}>
-            <li>
-                <span className={css.label}>Followers</span>
-                <span className={css.quantity}>{followers}</span>
-            </li>
-            <li>
-                <span className={css.label}>Views</span>
-                <span className={css.quantity}>{views}</span>
-            </li>
-            <li>
-                <span className={css.label}>Likes</span>
-                <span className={css.quantity}>{likes}</span>
-            </li>
+            {statsData.map(([key, value]) => {
+                return (
+                    <li key={key}>
+                        <span className={css.label}>{key}</span>
+                        <span className={css.quantity}>{value}</span>
+                    </li>
+                );
+            })}
         </ul>
     );
 };
 
-ProfileStats.propTypes = {
-    followers: PropTypes.number.isRequired,
-    views: PropTypes.number.isRequired,
-    likes: PropTypes.number.isRequired,
-}
+ProfileStats.propTypes = PropTypes.exact({
+        followers: PropTypes.number.isRequired,
+        views: PropTypes.number.isRequired,
+        likes: PropTypes.number.isRequired,
+    }).isRequired
+
+

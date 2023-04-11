@@ -14,7 +14,7 @@ export const Profile = props => {
                 <p className={css.location}>{location}</p>
             </div>
 
-            <ProfileStats followers={followers} views={views} likes={likes} />
+            <ProfileStats stats={stats} />
         </div>
     );
 };
@@ -28,5 +28,5 @@ Profile.propTypes = {
         followers: PropTypes.number.isRequired,
         views: PropTypes.number.isRequired,
         likes: PropTypes.number.isRequired,
-    }),
+    }).isRequired,
 };

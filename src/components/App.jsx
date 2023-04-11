@@ -1,7 +1,7 @@
 import user from 'data/user.json';
-import data from 'data/data.json';
 import friends from 'data/friends.json';
 import transactions from 'data/transactions.json';
+import { uniq } from 'utils/uniq-arr';
 import { Profile } from 'components/index';
 import { Statistics } from 'components/index';
 import { FriendsList } from 'components/index';
@@ -20,7 +20,7 @@ export const App = () => {
                 stats={user.stats}
             />
 
-            <Statistics data={data} title="Upload stats" />
+            <Statistics uniq={uniq} title="Upload stats" />
 
             <FriendsList friends={friends} />
 

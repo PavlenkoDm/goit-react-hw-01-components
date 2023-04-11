@@ -21,6 +21,7 @@
     /* outline: 1px tomato solid; */
     display: block;
     color: var(--color-text-primary);
+    text-transform: capitalize;
 }
 
 .quantity {
