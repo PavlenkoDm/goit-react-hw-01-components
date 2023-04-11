@@ -4,7 +4,6 @@ import css from './Profile.module.css'
 
 export const Profile = props => {
     const { username, tag, location, avatar, stats } = props;
-    const { followers, views, likes } = stats;
     return (
         <div className={css.profile}>
             <div className={css.description}>
